@@ -1,1 +1,1 @@
-# BlastZoneStudios.github.io
+# bzs_website
