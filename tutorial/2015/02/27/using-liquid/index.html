@@ -24,15 +24,19 @@ frankenstein:
     <span class=nt>&lt;head&gt;</span>
       <span class=nt>&lt;body&gt;</span>
         <span class=nt>&lt;h1&gt;</span> My page title: Using Liquid with Jekyll <span class=nt>&lt;/h1&gt;</span>
-          
-          
+          {% assign book = site.data.books[page.books] %}
+          {% if book %}
+          <span class=nt>&lt;p&gt;</span>{{ book.title }}<span class=nt>&lt;/p&gt;</span>
+          {% endif %} 
       <span class=nt>&lt;/body&gt;</span>
     <span class=nt>&lt;/head&gt;</span>
   <span class=nt>&lt;/html&gt;</span></code></pre></div><p>This may be a lot to write down for so little, but the ability to call the information without typing manually is very powerful.</p><h2>Programming in Liquid</h2><p>As you may have noticed in the code above, there&#39;s an if tag in the angular brackets. This is the very heart of Liquid. You are able to use basic programming commands like if statements and for loops. Mixing this with your html will allow you to do a lot with just a little bit of code.</p><p>To make a loop that goes through all the books in your data file, all you need to do is use the for command:</p><div class=highlight><pre><code class=language-html data-lang=html><span class=nt>&lt;html&gt;</span>
     <span class=nt>&lt;head&gt;</span>
       <span class=nt>&lt;body&gt;</span>
         <span class=nt>&lt;h1&gt;</span> My page title: Using Liquid with Jekyll <span class=nt>&lt;/h1&gt;</span>
-          
+        {% for book in site.data.books %}
+          <span class=nt>&lt;p&gt;</span>{{ book.title }}<span class=nt>&lt;/p&gt;</span>
+        {% endfor %} 
       <span class=nt>&lt;/body&gt;</span>
     <span class=nt>&lt;/head&gt;</span>
   <span class=nt>&lt;/html&gt;</span></code></pre></div><p>This will loop through each book in the <code>book.yml</code> file and output the title. Each one will be on a separate paragraph as well. As you can see, this saves a ton of time if you have a large amount of data you want to output.</p><h2>Conclusion</h2><p>Liquid is one of the reasons why Jekyll is so powerful as a blog engine. Being able to use templates saves a ton of time when you want to focus on just writing posts.</p><hr><p>References: <a href=http://docs.shopify.com/themes/liquid-documentation/basics>official docs</a>, <a href="http://jekyllrb.com/docs/frontmatter/">frontmatter</a></p><div style="background-color: #e9edc6; border-radius: 8px"><p style="padding: 1.5em 1em"><i>This article was written by Steven Yang. Follow him on <a href=http://twitter.com/skewerb>Twitter</a></i></p></div></article><div id=disqus_thread></div><script type=text/javascript>/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
